@@ -11,12 +11,15 @@ Essentially, MINIMAX helps the AI decide what is the optimal decision based on t
 ## Alpha-Beta Pruning
 The MINIMAX algorithm was paired up with ALPHA-BETA PRUNING to drastically reduce the number of computations. The MINIMAX algorithm by itself can be slow as it is naive, it tries all possibilities. ALPHA-BETA PRUNING improves the performance drastically without affecting the results of the algorithm. This add-on will force MINIMAX to stop searching when it evaluated at least one move that was worse, respective of the maximizing/minimizing player. Essentially, pruning the branch or path. 
 
+Function: 
+
 
 # Algorithm for dumb AI
 For this program, the dumd AI simply picks its move randomly. Basically, the AI seems as if it has no notion of the current or future state of the game. 
 
 To make an AI that is slightly smarter than the dumb AI, but dumber than the smart AI. A depth variable could be added to the minimax call tree to limit how far in the "future" the AI can see. The call would be made with a depth of 0, and every recursive call would increase the depth. The base case would have an added case for when the depth has reach MAX_DEPTH.
 
+Function: 
 
 # How to play
 
