@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TicTacToeAI", "TicTacToeAI\TicTacToeAI.pyproj", "{EED712FC-9FF5-4590-A2E0-6310D22E3814}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{381C0BC8-809B-48FB-BF36-AC0F381623F1}"
+	ProjectSection(SolutionItems) = preProject
+		TicTacToeAI\PlayTTT.py = TicTacToeAI\PlayTTT.py
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EED712FC-9FF5-4590-A2E0-6310D22E3814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED712FC-9FF5-4590-A2E0-6310D22E3814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED8DDFD8-4AD0-4DE1-88A8-3D803D3FD72E}
+	EndGlobalSection
+EndGlobal
