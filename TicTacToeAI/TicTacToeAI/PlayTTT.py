@@ -2,7 +2,7 @@
 # Author: Mounceph Morssaoui
 # Github: Mounceph99
 # Created: May 17, 2020
-# Last modified: May 18, 2020
+# Last modified: May 20, 2020
 #
 # Description:
 # This program offers a GUI to play TTT, which uses some functions from TicTacToeAPI.py.
@@ -30,6 +30,7 @@ from tkinter import messagebox
 
 #Import my TicTacToeAPI 
 from TicTacToeAI import *
+
 
 ################################################
 # Function/Class body section
@@ -114,7 +115,7 @@ class TTTGui:
 
         #Update placeholder board and update GUI
         self.updateGUI(index,self.turn)
-        updateTTT(self.board,row,col,"X")
+        updateTTT(self.board,row,col,"X", GUI = True)
 
 
         #Check if game is done, return if true with a message box
@@ -130,12 +131,12 @@ class TTTGui:
            #Makes sure there is still a vaild move available
            if move != None:
                #Update placeholder board and update GUI
-               updateTTT(self.board,move[0],move[1],"O")  
+               updateTTT(self.board,move[0],move[1],"O",GUI = True)  
                self.updateGUI(move[0]*3+move[1],self.turn)        
         else:
             move = smart_AI(self.board)
              #Update placeholder board and update GUI
-            updateTTT(self.board,move[0],move[1],"O")  
+            updateTTT(self.board,move[0],move[1],"O",GUI = True)  
             self.updateGUI(move[0]*3+move[1],self.turn)
             
          #Check if game is done, return if true with a message box
@@ -213,11 +214,11 @@ class TTTGui:
             if  self.ai == "dumb":
                 move = dumb_AI(self.board)
                 if move != None:
-                    updateTTT(self.board,move[0],move[1],"O")  
+                    updateTTT(self.board,move[0],move[1],"O",GUI = True)  
                     self.updateGUI(move[0]*3+move[1],self.turn)        
             else:
                 move = smart_AI(self.board)
-                updateTTT(self.board,move[0],move[1],"O")  
+                updateTTT(self.board,move[0],move[1],"O",GUI = True)  
                 self.updateGUI(move[0]*3+move[1],self.turn) 
        
     #This function game player's turn
