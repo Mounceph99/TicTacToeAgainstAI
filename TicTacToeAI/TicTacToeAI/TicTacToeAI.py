@@ -95,8 +95,8 @@ def is_full_TTT(board):
     return True
 
 #This function returns whether the game is over of not
-def game_over(board, turn, minimax = False):
-    if not minimax:
+def game_over(board, turn, minimax = False,GUI = False):
+    if not minimax and not GUI:
         visualTTT(board)
 
     if hasWon(board):                  
@@ -156,18 +156,18 @@ def change_turn(myturn):
 # a valid move is one that has not been played yet
 # return true and update TTT board if valid,
 # else return false without updating the board
-def updateTTT(board, row, col, move, minimax = False):
+def updateTTT(board, row, col, move, minimax = False, GUI = False):
     # Move cannot be played since it has already been played
     if board[row][col] != " ":
         if not minimax:
-            visualTTT(board)
+            visualTTT(board, GUI)
         return False
 
     # Move can be played, update board
     board[row][col] = move
 
     if not minimax:
-            visualTTT(board)
+            visualTTT(board, GUI)
     return True
 
 
@@ -191,7 +191,8 @@ def dumb_AI(board):
     row = play_move[0]
     col = play_move[1]
     #ai_finish = updateTTT(board,row,col,"O")
-    updateTTT(board,row,col,"O")
+    #Note that GUI is set to true because we dont want to log the board
+    updateTTT(board,row,col,"O",GUI = True)
     #The return is for the GUI, in order to update the GUI
     #Note that it could be done another way, (copy the board list) but this is faster
     return [row, col]
@@ -218,7 +219,7 @@ def smart_AI(board):
                     best_col = y
 
     #Update real board
-    updateTTT(board,best_row, best_col,"O")
+    updateTTT(board,best_row, best_col,"O",minimax = True)
     
     #The return is for the GUI, in order to update the GUI
     #Note that it could be done another way, (copy the board list) but this is faster
@@ -231,7 +232,7 @@ def minimax(board, isMaximizing, alpha = -inf, beta = inf):
 
     #Return the score of the board when the game is over
     #{O :1, X :-1, Tie :0}
-    if game_over(board, isMaximizing, True):
+    if game_over(board, isMaximizing, True, GUI = False):
         return hasWon(board,True,isMaximizing)          
 
     #Note: AI is maximizing, therefore the player is minimizing relatively to the AI
@@ -333,9 +334,10 @@ def player_move(board):
 
 #This function clears the screen and print the TTT for a clean 
 #representation of the console the state of the game
-def visualTTT(board):
-    cls()
-    printTTT(board)
+def visualTTT(board, GUI = False):
+    if not GUI:
+        cls()
+        printTTT(board)
 
 
 #This function incorporates all previous functions in order to play TTT on the console
